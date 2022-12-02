@@ -22,15 +22,7 @@ class DdnMsg:
         self.platform = None
         self.msg_ver = msg_ver
 
-    def check_none(self) -> int:
-        for k, v in vars(self).items():
-            if not v:
-                print('error! DdnMsg variable {} is None'.format(k))
-                return 1
-        return 0
-
     def as_dict(self):
-        assert self.check_none == 0
         return vars(self)
 
 
