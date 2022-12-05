@@ -1,3 +1,6 @@
+import copy
+import sys
+
 OPCODE_SQS_DDH_BOOT = 'DDH_BOOT'
 OPCODE_SQS_DDH_ERROR_BLE_HW = 'DDH_ERROR_BLE_HARDWARE'
 OPCODE_SQS_LOGGER_DL_OK = 'LOGGER_DOWNLOAD'
@@ -34,6 +37,10 @@ class DdnMsg:
         self.platform = None
         self.msg_ver = msg_ver
 
+        # for testing
+        # self.fake_field = None
+        # del self.msg_ver
+
     def cp_from_dict(self, d: dict):
         self.reason = d['reason']
         self.logger_mac = d['logger_mac']
@@ -52,7 +59,29 @@ class DdnMsg:
     def as_dict(self):
         return vars(self)
 
+    def check_ddn_msg_fields_names(self):
+        d = copy.deepcopy(self.as_dict())
 
-if __name__ == '__main__':
-    m = DdnMsg()
-    print(m.as_dict())
+        try:
+            del d['reason']
+            del d['logger_mac']
+            del d['logger_sn']
+            del d['project']
+            del d['vessel']
+            del d['ddh_commit']
+            del d['utc_time']
+            del d['local_time']
+            del d['box_sn']
+            del d['hw_uptime']
+            del d['gps_position']
+            del d['platform']
+            del d['msg_ver']
+        except KeyError as e:
+            print('error: DdnMsg object missing keys ->', e)
+            sys.exit(1)
+
+        try:
+            assert d == {}
+        except AssertionError:
+            print('error: DdnMsg object unknown keys ->', d)
+            sys.exit(1)
