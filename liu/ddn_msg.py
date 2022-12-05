@@ -59,7 +59,7 @@ class DdnMsg:
     def as_dict(self):
         return vars(self)
 
-    def check_ddn_msg_fields_names(self):
+    def validate_ddn_msg_fields_names(self):
         d = copy.deepcopy(self.as_dict())
 
         try:
@@ -78,10 +78,10 @@ class DdnMsg:
             del d['msg_ver']
         except KeyError as e:
             print('error: DdnMsg object missing keys ->', e)
-            sys.exit(1)
+            return 1
 
         try:
             assert d == {}
         except AssertionError:
             print('error: DdnMsg object unknown keys ->', d)
-            sys.exit(1)
+            return 1
