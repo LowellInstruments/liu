@@ -19,6 +19,7 @@ ALL_OPCODE_SQS = [
 ]
 
 
+# todo > change this function name
 def get_db_list_of_opcodes():
     return ALL_OPCODE_SQS
 
