@@ -1,5 +1,5 @@
 import copy
-import sys
+
 
 OPCODE_SQS_DDH_BOOT = 'DDH_BOOT'
 OPCODE_SQS_DDH_ERROR_BLE_HW = 'DDH_ERROR_BLE_HARDWARE'
@@ -19,8 +19,7 @@ ALL_OPCODE_SQS = [
 ]
 
 
-# todo > change this function name
-def get_db_list_of_opcodes():
+def get_ddn_msg_list_of_opcodes():
     return ALL_OPCODE_SQS
 
 
@@ -63,6 +62,7 @@ class DdnMsg:
         return vars(self)
 
     def validate_ddn_msg_fields_names(self):
+        # check myself as a message
         d = copy.deepcopy(self.as_dict())
 
         try:
@@ -80,11 +80,11 @@ class DdnMsg:
             del d['platform']
             del d['msg_ver']
         except KeyError as e:
-            print('error: DdnMsg object missing keys ->', e)
+            print('error: DdnMsg object is missing key ->', e)
             return 1
 
         try:
             assert d == {}
         except AssertionError:
-            print('error: DdnMsg object unknown keys ->', d)
+            print('error: DdnMsg object has extra unknown key ->', d)
             return 1
