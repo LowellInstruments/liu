@@ -3,21 +3,25 @@ echo; echo; echo
 
 
 # -----------------------------------------------------------------------
-# this script automatically installs lowell-mat without its dependencies
 # call as:
-# curl https://raw.githubusercontent.com/LowellInstruments/lowell-mat/v4/settings/installer_lowell_mat.sh
+# curl https://raw.githubusercontent.com/LowellInstruments/liu/master/settings/installer_liu.sh
 # -----------------------------------------------------------------------
 
 
-printf '> CURL installer for Lowell Instruments MAT library\n'
-printf '> Cloning repository lowell-mat'
-git clone https://github.com/lowellinstruments/lowell-mat.git -b v4
+printf '> CURL installer for Lowell Instruments Utils library\n'
+printf '> Cloning repository liu'
+git clone https://github.com/lowellinstruments/liu.git
 rv=$?
 if [ "$rv" -ne 0 ]; then
-    printf 'error cloning lowell-mat github repository'
+    printf 'error cloning liu github repository'
     exit 1
 fi
 
 
-printf '> Installing lowell-mat in empty-dependencies mode'
-cd lowell-mat && export MY_IGNORE_REQUIREMENTS_TXT=1 && pip install . -v
+printf '> Installing liu'
+cd liu && pip install . -v
+rv=$?
+if [ "$rv" -ne 0 ]; then
+    printf 'error installing liu'
+    exit 1
+fi
