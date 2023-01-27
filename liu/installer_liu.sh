@@ -1,3 +1,8 @@
 #!/usr/bin/bash
 
-curl https://raw.githubusercontent.com/LowellInstruments/liu/master/liu/installer_liu.sh
+# call as:
+# curl https://raw.githubusercontent.com/LowellInstruments/liu/master/liu/installer_liu.sh | bash
+
+clear
+echo 'hello'
+echo
