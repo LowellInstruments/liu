@@ -4,7 +4,7 @@ echo; echo; echo
 
 # -----------------------------------------------------------------------
 # call as:
-# curl https://raw.githubusercontent.com/LowellInstruments/liu/master/settings/installer_liu.sh
+# curl https://raw.githubusercontent.com/LowellInstruments/liu/master/settings/installer_liu.sh | bash
 # -----------------------------------------------------------------------
 
 
