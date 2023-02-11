@@ -1,6 +1,10 @@
 import copy
 
 
+# -----------------------------------
+# these are SQS codes, not GUI codes
+# -----------------------------------
+
 OPCODE_SQS_DDH_BOOT = 'DDH_BOOT'
 OPCODE_SQS_DDH_ERROR_BLE_HW = 'DDH_ERROR_BLE_HARDWARE'
 OPCODE_SQS_DDH_ERROR_GPS_HW = 'DDH_ERROR_GPS_HARDWARE'
