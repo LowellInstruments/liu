@@ -46,6 +46,7 @@ class DdnMsg:
         self.gps_position = None
         self.platform = None
         self.msg_ver = msg_ver
+        self.data = None
 
         # for testing
         # self.fake_field = None
@@ -65,6 +66,7 @@ class DdnMsg:
         self.gps_position = d['gps_position']
         self.platform = d['platform']
         self.msg_ver = d['msg_ver']
+        self.data = d['data']
 
     def as_dict(self):
         return vars(self)
@@ -87,6 +89,7 @@ class DdnMsg:
             del d['gps_position']
             del d['platform']
             del d['msg_ver']
+            del d['data']
         except KeyError as e:
             print('error: DdnMsg object is missing key ->', e)
             return 1
