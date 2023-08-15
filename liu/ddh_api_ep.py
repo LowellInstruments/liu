@@ -18,17 +18,17 @@ EP_MAC_LOGGER_RESET = 'mac_logger_reset'
 # rest return immediately upon response, they can be higher
 d_ep = {
     EP_PING: .5,
-    EP_INFO: 3,
+    EP_INFO: 10,
     EP_LOGS_GET: 10,
-    EP_CONF_GET: 3,
+    EP_CONF_GET: 5,
     EP_CONF_SET: 5,
     EP_CRON_ENA: 1,
     EP_CRON_DIS: 1,
     EP_UPDATE_MAT: 60,
     EP_UPDATE_DDH: 30,
-    EP_UPDATE_DDT: 5,
-    EP_UPDATE_LIU: 5,
-    EP_KILL_DDH: 2,
+    EP_UPDATE_DDT: 30,
+    EP_UPDATE_LIU: 30,
+    EP_KILL_DDH: 5,
     EP_KILL_API: 5,
 }
 
