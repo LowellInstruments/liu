@@ -2,6 +2,7 @@ EP_PING = 'ping'
 EP_INFO = 'info'
 EP_LOGS_GET = 'logs_get'
 EP_CONF_GET = 'conf_get'
+EP_DL_FILES_GET = 'dl_files_get'
 EP_CONF_SET = 'conf_set'
 EP_CRON_ENA = 'cron_ena'
 EP_CRON_DIS = 'cron_dis'
@@ -39,4 +40,3 @@ LIST_CONF_FILES = {
     'settings/_li_all_macs_to_sn.yml',
     '/etc/crontab'
 }
-
